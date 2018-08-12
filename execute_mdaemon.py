@@ -7,7 +7,7 @@ from selenium.webdriver.common.keys import Keys
 import csv
 import time
 import pathlib
-from config import admin_user, admin_passwd
+from config import admin_user, admin_passwd, url
 
 
 def get_list():
@@ -57,7 +57,7 @@ def create_user(**args):
     #MAFolderGroups
     driver.find_element_by_id('MAFolderGroups').click()
     #//*[@id="AvailableGroups"]/option[2]
-    driver.find_element_by_xpath('//*[@id="AvailableGroups"]/option[28]').click()
+    driver.find_element_by_xpath('//*[@id="AvailableGroups"]/option[29]').click()
     #Left  name
     driver.find_element_by_name('Left').click()
     #SaveButton
@@ -81,6 +81,6 @@ if __name__ == '__main__':
 
     driver = webdriver.Chrome('./chromedriver')
     driver.implicitly_wait(10)
-    driver.get("https://mail.juneyaoair.com:1001/")
+    driver.get(url)
     assert "MDaemon" in driver.title
     main()
